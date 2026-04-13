@@ -1,4 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 
-h1{
-    color: blue;
+
+
+
+/* COLORES */
+
+:root {
+    --primary-color: #0cb094;
+    --secondary-color: #f8f8f8;
+    --text-color: #333333;
+}
+
+
+/* HEADER */
+
+.header {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.438);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* BUSCADOR */
+
+.search-container {
+    width: 50%;
+    min-width: 200px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
+}
+
+/* CART Y USUARIO */
+
+.cart-user-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.cart-container {
+    background-color: var(--primary-color);
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.cart-container img {
+    width: 25px;
+}
+
+
+.cart-container span {
+    position: absolute;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    Font-size: 13px;
+}
+
+
+.user-container {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.user-container img {
+    width: 30px;
+    padding: 2px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: white;
+}
+
+.user-container p {
+    color: white;
+    font-size: small;
+    font-family: sans-serif;
+    font-weight: bold;
+
+}
+
+
+/* PAGINA DE REGISTRO  Y LOGIN */
+
+.auth-bg {
+    height: 80vh;
+    background: linear-gradient(to bottom, #0cb094 0%, #0cb094 45%, white 45%, white 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+
+.auth-section {
+    background-color: var(--secondary-color);
+    width: 90%;
+    max-width: 400px;
+    min-height: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px 2px rgb(92, 92, 92);
+
+}
+
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+.flex-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.flex-group .form-group {
+    flex: 1;
+    min-width: 0;
+
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: small;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    width: 100%; 
+    box-sizing: border-box; 
+    
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--primary-color);
+}
+
+.form-group input::placeholder {
+    color: rgb(173, 173, 173);
+    font-size: small;
+}
+
+.auth-form button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-form button:hover {
+    background-color: #0a7c73;
+    transition: all 0.3s ease;
+}
+
+.have-count {
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    font-size: small;
+    color: black;
+}
+
+.bold {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+
+/* FOOTER */
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #888888;
+    font-family: Arial, sans-serif;
+    color: #666;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.social-icons img {
+    width: 25px;
+    height: auto;
+    filter: grayscale(1);
+
+    opacity: 0.7;
+}
+
+
+.app-stores .store-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #666;
+    gap: 5px;
+}
+
+.app-stores img {
+    width: 24px;
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+    .main-footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 30px 20px;
+    }
 }
