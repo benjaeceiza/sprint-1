@@ -1,0 +1,47 @@
+
+
+const categorias = [
+    {
+        id: 1,
+        name: 'electronica',
+        icon: "/images/tecnologia.png"
+    },
+    {
+        id: 2,
+        name: 'ropa',
+        icon: "/images/camiseta.png"
+    },
+    {
+        id: 3,
+        name: 'ropa',
+        icon: "/images/sofa.png"
+    },
+    {
+        id: 4,
+        name: 'comida',
+        icon: "/images/pizza.png"   
+    },
+    {
+        id: 5,
+        name: 'bebida',
+        icon: "/images/soda.png"
+    },
+    {
+        id: 6,
+        name: 'automotor',
+        icon: "/images/volante.png"
+    },
+    {
+        id: 7,
+        name: 'juegos',
+        icon: "/images/consola.png"
+    },
+    {
+        id: 8,
+        name: 'otros',
+        icon: "/images/regalo.png"
+    }
+]
+
+
+module.exports = categorias;
