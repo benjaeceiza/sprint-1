@@ -10,18 +10,28 @@ app.use(express.static('public'));
 
 const categorias = require('./public/js/categories');
 const products = require('./public/js/products');
+const { getProductById } = require('./public/js/getProductById');
 
 
 // Rutas
 //Pagina de inicio
 app.get('/',
-    (req, res) => res.render('pages/index',{categorias, products})
+    (req, res) => res.render('pages/index', { categorias, products })
 );
 
 //Página de un producto en particular
-app.get('/products',
-    (req, res) => res.render('pages/product')
-);
+app.get('/products/:id', (req, res) => {
+    const idDeLaUrl = req.params.id;
+    const productoEncontrado = getProductById(idDeLaUrl);
+
+    if (productoEncontrado) {
+        res.render('pages/product', { product: productoEncontrado, products, categorias });
+    } else {
+        res.status(404).render('pages/productoNoEncontrado', { products, categorias });   
+    }
+
+
+});
 
 //Página del carrito de compras
 app.get('/cart',

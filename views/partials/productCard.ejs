@@ -1,6 +1,6 @@
 <% products.forEach(product => { %>
     <% if(product.categoria === categoria) { %>
-        <a href="/products" class="product-card">
+        <a href="/products/<%= product.id %>" class="product-card">
             <img src="<%= product.image %>" alt="<%= product.name %>" class="product-image">
             <div class="product-data">
                 <h3 class="product-name">

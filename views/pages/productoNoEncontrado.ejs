@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Producto no encontrado | MiEcommerce</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <main class="not-found-main">
+            <div class="not-found-container">
+
+                <div class="not-found-icon">
+                    📦🔍
+                </div>
+
+                <h1 class="not-found-title">¡Ups! Producto no encontrado</h1>
+
+                <p class="not-found-text">
+                    Parece que el producto que estás buscando no existe, se quedó sin stock o el enlace es incorrecto.
+                </p>
+
+                <a href="/" class="not-found-btn">Volver a la tienda</a>
+
+                <section class="product-section">
+                    <h2 class="product-section-title">Te puede interesar</h2>
+                    <div class="products-container">
+                        <%- include('../partials/productCard', { products, categoria: "bebida" }) %>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

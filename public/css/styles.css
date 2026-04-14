@@ -5,10 +5,11 @@
     font-family: sans-serif;
 }
 
-body{
+body {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 100px; /* Altura del footer */
+    padding-bottom: 100px;
+    /* Altura del footer */
 }
 
 .container {
@@ -314,7 +315,7 @@ body{
     overflow: hidden;
     height: 300px;
     box-shadow: 0px 0px 10px 2px rgb(92, 92, 92);
-   
+
 
 }
 
@@ -443,6 +444,262 @@ body{
     scale: 1.05;
     transition: all 0.3s ease;
 }
+
+
+/* =========================================
+   PRODUCT DETAIL PAGE
+   ========================================= */
+
+.product-detail-main {
+    background-color: #f5f5f5;
+    /* El fondo gris clarito de la página */
+    padding: 30px 20px;
+    min-height: calc(100vh - 150px);
+    /* Ajusta según el alto de tu header/footer */
+}
+
+.product-detail-wrapper {
+    max-width: 1000px;
+    /* Ancho máximo para que no se estire infinito en monitores grandes */
+    margin: 0 auto;
+}
+
+/* --- Breadcrumbs (Navegación superior) --- */
+.product-detail-breadcrumbs {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.product-detail-breadcrumbs a {
+    color: #333;
+    text-decoration: none;
+}
+
+.product-detail-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* --- Layout Principal de la Tarjeta --- */
+.product-detail-layout {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    gap: 40px;
+    /* Separación entre la zona de fotos y la zona de info */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    /* Sombrita sutil */
+}
+
+/* --- Sección Izquierda: Imágenes --- */
+.product-detail-image-section {
+    flex: 1;
+    /* Ocupa la mitad de la tarjeta */
+    display: flex;
+    gap: 15px;
+}
+
+.product-detail-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70px;
+    /* Ancho fijo para las miniaturas */
+}
+
+.product-detail-thumb {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.product-detail-thumb:hover {
+    border-color: var(--primary-color, #0cb094);
+}
+
+.product-detail-main-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-main-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* --- Sección Derecha: Info y Compra --- */
+.product-detail-info-section {
+    flex: 1;
+    /* Ocupa la otra mitad de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espaciado uniforme entre título, precio, botón y texto */
+}
+
+.product-detail-info-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-detail-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    font-weight: normal;
+}
+
+.product-detail-price-points {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.product-detail-price-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.product-detail-points-label {
+    font-size: 1rem;
+    color: #666;
+    letter-spacing: 1px;
+}
+
+/* --- Botón Agregar al Carrito --- */
+.product-detail-action-form {
+    margin-top: 10px;
+}
+
+.product-detail-add-to-cart-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #5a5a5a;
+    /* Color gris oscuro de la imagen */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    /* Bordes bien redondeados estilo pastilla */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-detail-add-to-cart-btn:hover {
+    background-color: #404040;
+}
+
+/* --- Descripción --- */
+.product-detail-description {
+    font-size: 0.85rem;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.product-detail-description p {
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   RESPONSIVE (Para celulares)
+   ========================================= */
+@media (max-width: 768px) {
+    .product-detail-layout {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-detail-image-section {
+        flex-direction: column-reverse;
+    }
+
+    .product-detail-thumbnails {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .product-detail-thumb {
+        width: 60px;
+    }
+}
+
+
+
+/*PÁGINA DE PRODUCTO NO ENCONTRADO (404) */
+
+.not-found-main {
+    background-color: #f5f5f5; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.not-found-container {
+    background-color: white;
+    max-width: 1200px;
+    width: 100%;
+    padding: 50px 30px;
+    border-radius: 20px; 
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; 
+}
+
+.not-found-icon {
+    font-size: 5rem; 
+    margin-bottom: 10px;
+}
+
+.not-found-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+.not-found-text {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.not-found-btn {
+    display: inline-block;
+    background-color: var(--primary-color, #0cb094); 
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 25px; 
+    transition: all 0.3s ease;
+}
+
+.not-found-btn:hover {
+    background-color: #0a8f78; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(12, 176, 148, 0.3);
+}
+
 
 
 /* FOOTER */
