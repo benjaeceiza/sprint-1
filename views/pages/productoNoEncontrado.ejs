@@ -11,29 +11,24 @@
 <body>
     <%- include('../partials/header') %>
 
-        <main class="not-found-main">
+        <main class="not-found-main" style="flex-direction: column; gap: 50px;">
+            
             <div class="not-found-container">
-
-                <div class="not-found-icon">
-                    📦🔍
-                </div>
-
+                <div class="not-found-icon">📦🔍</div>
                 <h1 class="not-found-title">¡Ups! Producto no encontrado</h1>
-
                 <p class="not-found-text">
                     Parece que el producto que estás buscando no existe, se quedó sin stock o el enlace es incorrecto.
                 </p>
-
                 <a href="/" class="not-found-btn">Volver a la tienda</a>
-
-                <section class="product-section">
-                    <h2 class="product-section-title">Te puede interesar</h2>
-                    <div class="products-container">
-                        <%- include('../partials/productCard', { products, categoria: "bebida" }) %>
-                    </div>
-                </section>
-
             </div>
+
+            <section class="product-section" style="width: 100%; max-width: 1000px;">
+                <h2 class="product-section-title" style="text-align: center; margin-bottom: 20px;">Te puede interesar</h2>
+                <div class="products-container">
+                    <%- include('../partials/productCard', { products: randomProducts, categoria: "all" }) %>
+                </div>
+            </section>
+
         </main>
 
         <%- include('../partials/footer') %>

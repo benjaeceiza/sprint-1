@@ -10,7 +10,10 @@ app.use(express.static('public'));
 
 const categorias = require('./public/js/categories');
 const products = require('./public/js/products');
-const { getProductById } = require('./public/js/getProductById');
+const cart = require('./public/js/cart');
+const { getProductById, getRandomProducts } = require('./public/js/getProducts');
+const {totalGeneral} = require('./public/js/totalCart');
+
 
 
 // Rutas
@@ -19,23 +22,33 @@ app.get('/',
     (req, res) => res.render('pages/index', { categorias, products })
 );
 
-//Página de un producto en particular
+// Página de un producto en particular
 app.get('/products/:id', (req, res) => {
     const idDeLaUrl = req.params.id;
     const productoEncontrado = getProductById(idDeLaUrl);
-
+    const randomProducts = getRandomProducts(products, 4);
+    
     if (productoEncontrado) {
-        res.render('pages/product', { product: productoEncontrado, products, categorias });
+
+        res.render('pages/product', {
+            product: productoEncontrado,
+            products: products,
+            randomProducts,
+            categorias
+        });
     } else {
-        res.status(404).render('pages/productoNoEncontrado', { products, categorias });   
+
+        res.status(404).render('pages/productoNoEncontrado', {
+            products: products,
+            randomProducts,
+            categorias
+        });
     }
-
-
 });
 
 //Página del carrito de compras
 app.get('/cart',
-    (req, res) => res.render('pages/cart')
+    (req, res) => res.render('pages/cart', { cart, totalGeneral })
 );
 
 //Página de pago
