@@ -12,7 +12,7 @@ const categorias = require('./public/js/categories');
 const products = require('./public/js/products');
 const cart = require('./public/js/cart');
 const { getProductById, getRandomProducts } = require('./public/js/getProducts');
-const {totalGeneral} = require('./public/js/totalCart');
+const { totalGeneral } = require('./public/js/totalCart');
 
 
 
@@ -27,9 +27,8 @@ app.get('/products/:id', (req, res) => {
     const idDeLaUrl = req.params.id;
     const productoEncontrado = getProductById(idDeLaUrl);
     const randomProducts = getRandomProducts(products, 4);
-    
-    if (productoEncontrado) {
 
+    if (productoEncontrado) {
         res.render('pages/product', {
             product: productoEncontrado,
             products: products,
@@ -48,8 +47,36 @@ app.get('/products/:id', (req, res) => {
 
 //Página del carrito de compras
 app.get('/cart',
-    (req, res) => res.render('pages/cart', { cart, totalGeneral })
+    (req, res) => res.render('pages/cart', { cart, totalGeneral})
 );
+
+// Ruta para SUMAR
+app.post('/cart/increase/:id', (req, res) => {
+    const idProducto = parseInt(req.params.id);
+    const producto = cart.find(item => item.id === idProducto);
+
+    if (producto) {
+        producto.cantidad += 1;
+     
+    }
+
+    res.redirect('/cart');
+});
+
+
+// Ruta para RESTAR
+app.post('/cart/decrease/:id', (req, res) => {
+    const idProducto = parseInt(req.params.id);
+    const producto = cart.find(item => item.id === idProducto);
+
+    if (producto && producto.cantidad > 1) {
+        producto.cantidad -= 1;
+    }
+
+    res.redirect('/cart');
+});
+
+
 
 //Página de pago
 app.get('/checkout',

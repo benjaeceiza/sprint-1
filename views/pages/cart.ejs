@@ -29,13 +29,25 @@
 
                             <div class="cart-actions">
                                 <button class="cart-btn-delete">Eliminar</button>
+
                                 <div class="cart-btn-quantity-container">
-                                    <button class="cart-btn-decrease">-</button>
+
+                                    <form action="/cart/decrease/<%= item.id %>" method="POST"
+                                        style="margin: 0; display: flex;">
+                                        <button type="submit" class="cart-btn-decrease">-</button>
+                                    </form>
+
                                     <span class="cart-item-quantity">
                                         <%= item.cantidad %>
                                     </span>
-                                    <button class="cart-btn-increase">+</button>
+
+                                    <form action="/cart/increase/<%= item.id %>" method="POST"
+                                        style="margin: 0; display: flex;">
+                                        <button type="submit" class="cart-btn-increase">+</button>
+                                    </form>
+
                                 </div>
+
                                 <div class="cart-item-price">
                                     <span> $<%= item.precio %></span>
                                 </div>
@@ -46,8 +58,8 @@
                         <% }) %>
                 </section>
                 <section class="cart-total-section">
-                    <h3>Total a pagar: $31.50 </h3>
-                    <button class="checkout-btn">Ir a pagar</button>
+                    <h3>Total a pagar: $<%= totalGeneral %></h3>
+                    <a href="/checkout" class="checkout-btn">Ir a pagar</a>
                 </section>
             </div>
         </main>
